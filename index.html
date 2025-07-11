@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Performance Duradoura | VOCÊ DOMINANDO</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0d0d0d;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+    h1 {
+      color: #ff0000;
+      font-size: 2.5em;
+    }
+    h2 {
+      color: #f2f2f2;
+      margin-top: 20px;
+    }
+    .benefits {
+      margin: 30px 0;
+      padding: 0;
+      list-style: none;
+    }
+    .benefits li {
+      margin: 10px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+    .benefits li::before {
+      content: "✔️";
+      position: absolute;
+      left: 0;
+      color: #ff0000;
+    }
+    .cta {
+      background: #ff0000;
+      color: #fff;
+      padding: 15px 25px;
+      text-align: center;
+      display: inline-block;
+      font-size: 1.2em;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .cta:hover {
+      background: #cc0000;
+    }
+    .testimonials {
+      background: #1a1a1a;
+      padding: 20px;
+      margin-top: 40px;
+      border-radius: 10px;
+    }
+    .comment {
+      margin-bottom: 20px;
+    }
+    .comment .name {
+      font-weight: bold;
+      color: #ff4d4d;
+      margin-bottom: 5px;
+      display: block;
+    }
+    .comment p {
+      margin: 0;
+      line-height: 1.5;
+    }
+    .promo-box {
+      background-color: #1a1a1a;
+      border: 2px solid #ff0000;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 30px;
+      text-align: center;
+    }
+    .promo-box p {
+      margin: 10px 0;
+    }
+
+    /* Formulário de comentário */
+    #comment-form {
+      background: #222;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 20px;
+      display: none;
+      max-width: 600px;
+    }
+    #comment-form label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+      color: #ff4d4d;
+    }
+    #comment-form input[type="text"],
+    #comment-form textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      margin-bottom: 15px;
+      resize: vertical;
+      font-size: 1em;
+    }
+    #comment-form button {
+      background: #ff0000;
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 1.1em;
+      cursor: pointer;
+    }
+    #comment-form button:hover {
+      background: #cc0000;
+    }
+    #add-comment-btn {
+      margin-top: 30px;
+      background: #ff0000;
+      color: #fff;
+      border: none;
+      padding: 15px 25px;
+      font-size: 1.2em;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    #add-comment-btn:hover {
+      background: #cc0000;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Performance Duradoura | VOCÊ DOMINANDO</h1>
+    <h2>Domine a cama, surpreenda sua parceira e seja inesquecível.</h2>
+
+    <h2>O que você vai aprender:</h2>
+    <ul class="benefits">
+      <li>Durar mais tempo sem medicamentos.</li>
+      <li>Ter controle total do seu corpo.</li>
+      <li>Aumentar sua confiança na cama.</li>
+      <li>Descobrir o que elas realmente querem.</li>
+      <li>Ser o cara que ela nunca vai esquecer.</li>
+    </ul>
+
+    <h2>Bônus exclusivo:</h2>
+    <p>Guia extra com as 5 posições preferidas por elas — só para quem comprar hoje!</p>
+
+    <!-- Promoção com contador -->
+    <div class="promo-box">
+      <h2 style="color: #ff0000;">🔥 PROMOÇÃO RELÂMPAGO 🔥</h2>
+      <p style="font-size: 1.2em; color: #ffffff;">
+        Apenas <strong>17 vagas restantes</strong> com 50% de desconto!
+      </p>
+      <p style="font-size: 1em; color: #cccccc;">
+        Oferta válida por tempo limitado ou até as vagas acabarem.
+      </p>
+      <p style="font-size: 1.2em; color: #ff4d4d;" id="contador">
+        ⏰ Restam <strong>03h 00min 00s</strong> para encerrar o desconto especial!
+      </p>
+      <a class="cta" href="#">GARANTIR MINHA VAGA AGORA</a>
+    </div>
+
+    <!-- Botão para mostrar o formulário -->
+    <button id="add-comment-btn">Adicionar Comentário</button>
+
+    <!-- Formulário para adicionar comentário -->
+    <form id="comment-form">
+      <label for="nome">Seu nome (não será exibido):</label>
+      <input type="text" id="nome" name="nome" placeholder="Digite seu nome" />
+
+      <label for="comentario">Seu comentário:</label>
+      <textarea id="comentario" name="comentario" rows="4" placeholder="Digite seu comentário" required></textarea>
+
+      <button type="submit">Enviar Comentário</button>
+    </form>
+
+    <!-- Comentários -->
+    <div class="testimonials" id="comentarios-lista">
+      <h2>O que os homens estão dizendo:</h2>
+      <!-- Comentários gerados aqui via JS -->
+    </div>
+  </div>
+
+  <!-- JavaScript do contador e comentários aleatórios -->
+  <script>
+    const nomesAleatorios = [
+      "João",
+      "Pedro",
+      "Lucas",
+      "Felipe",
+      "Gustavo",
+      "Rafael",
+      "Henrique",
+      "Carlos",
+      "Bruno",
+      "Marcos",
+      "Thiago",
+      "Mateus",
+      "Vitor",
+      "Eduardo",
+      "Leonardo"
+    ];
+
+    const comentariosAleatorios = [
+      "Depois que comecei esse curso, minha vida mudou: tô comendo muito mais mulheres e me sentindo o rei da festa!",
+      "Nunca imaginei que seria tão fácil dominar na cama. Comecei a conquistar e comer mais mulheres que nunca!",
+      "O segredo tá aqui! Desde que fiz o curso, tô comendo mais mulheres, e minha confiança explodiu!",
+      "Rapaz, em poucas semanas já tava comendo muito mais mulheres e todo mundo percebeu a mudança no meu jogo.",
+      "Agora consigo controlar tudo, e isso mudou meu jogo por completo!",
+      "Não paro mais de impressionar, as mulheres ficam loucas!",
+      "Sem dúvida, o melhor investimento que fiz para minha vida sexual.",
+      "Aprendi técnicas que ninguém me contou, e tô colhendo os frutos!",
+      "Esse curso me deu a confiança que eu precisava para dominar de verdade.",
+      "Toda noite é uma festa diferente agora, elas não param de chamar!",
+      "Mais energia, controle e prazer - recomendo pra todos os caras!",
+      "Finalmente descobri o segredo para durar e satisfazer de verdade!",
+      "O que eu aprendi aqui não tem preço, mudou minha vida social e sexual.",
+      "Se você quer dominar, esse é o caminho certo, sem enrolação.",
+      "É incrível como algumas técnicas simples fazem toda a diferença."
+    ];
+
+    // Função para gerar um número inteiro aleatório entre min (inclusive) e max (exclusivo)
+    function getRandomInt(min, max) {
+      return Math.floor(Math.random() * (max - min)) + min;
+    }
+
+    // Função para gerar comentários aleatórios e renderizar na página
+    function gerarComentarios(qtd = 4) {
+      const container = document.getElementById('comentarios-lista');
+
+      // Limpar comentários antigos, mantendo o título <h2>
+      container.innerHTML = '<h2>O que os homens estão dizendo:</h2>';
+
+      for (let i = 0; i < qtd; i++) {
+        // Sortear nome e comentário
+        const nome = nomesAleatorios[getRandomInt(0, nomesAleatorios.length)];
+        const comentario = comentariosAleatorios[getRandomInt(0, comentariosAleatorios.length)];
+
+        // Criar elementos
+        const divComment = document.createElement('div');
+        divComment.classList.add('comment');
+
+        const spanNome = document.createElement('span');
+        spanNome.classList.add('name');
+        spanNome.textContent = nome;
+
+        const pComentario = document.createElement('p');
+        pComentario.textContent = comentario;
+
+        // Montar comentário
+        divComment.appendChild(spanNome);
+        divComment.appendChild(pComentario);
+
+        // Adicionar ao container
+        container.appendChild(divComment);
+      }
+    }
+
+    // Contador regressivo
+    const tempoTotal = 3 * 60 * 60 * 1000; // 3 horas
+    const fim = new Date().getTime() + tempoTotal;
+
+    const contador = document.getElementById("contador");
+
+    const intervalo = setInterval(function () {
+      const agora = new Date().getTime();
+      const distancia = fim - agora;
+
+      if (distancia <= 0) {
+        clearInterval(intervalo);
+        contador.innerHTML = "🚫 Oferta encerrada!";
+        return;
+      }
+
+      const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+      contador.innerHTML = `⏰ Restam <strong>${String(horas).padStart(2, '0')}h ${String(minutos).padStart(2, '0')}min ${String(segundos).padStart(2, '0')}s</strong> para encerrar o desconto especial!`;
+    }, 1000);
+
+    // Mostrar/esconder formulário ao clicar no botão
+    const btnAddComment = document.getElementById('add-comment-btn');
+    const formComment = document.getElementById('comment-form');
+
+    btnAddComment.addEventListener('click', () => {
+      if (formComment.style.display === 'none' || formComment.style.display === '') {
+        formComment.style.display = 'block';
+        btnAddComment.textContent = 'Fechar Formulário';
+      } else {
+        formComment.style.display = 'none';
+        btnAddComment.textContent = 'Adicionar Comentário';
+      }
+    });
+
+    // Adicionar novo comentário com nome aleatório
+    formComment.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const comentario = document.getElementById('comentario').value.trim();
+
+      if (!comentario) {
+        alert('Por favor, preencha seu comentário.');
+        return;
+      }
+
+      // Sortear um nome aleatório
+      const nomeRandom = nomesAleatorios[getRandomInt(0, nomesAleatorios.length)];
+
+      // Criar novo elemento de comentário
+      const novoComentario = document.createElement('div');
+      novoComentario.classList.add('comment');
+
+      const nomeSpan = document.createElement('span');
+      nomeSpan.classList.add('name');
+      nomeSpan.textContent = nomeRandom;
+
+      const comentarioP = document.createElement('p');
+      comentarioP.textContent = comentario;
+
+      novoComentario.appendChild(nomeSpan);
+      novoComentario.appendChild(comentarioP);
+
+      // Adicionar ao fim da lista
+      const comentariosLista = document.getElementById('comentarios-lista');
+      comentariosLista.appendChild(novoComentario);
+
+      // Limpar formulário e esconder
+      formComment.reset();
+      formComment.style.display = 'none';
+      btnAddComment.textContent = 'Adicionar Comentário';
+    });
+
+    // Gerar comentários aleatórios ao carregar a página
+    window.onload = () => {
+      gerarComentarios(4); // Gera 4 comentários aleatórios iniciais
+    };
+  </script>
+</body>
+</html>
